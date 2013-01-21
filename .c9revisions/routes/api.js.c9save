@@ -1,0 +1,3 @@
+{"ts":1358763678338,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
+{"contributors":[],"silentsave":false,"ts":1358763725624,"patch":[[{"diffs":[[1,"/*\n * API.\n */\n\nexports.organizations = function(req, res){\n  res.send(\"respond with a resource\");\n};"]],"start1":0,"start2":0,"length1":0,"length2":101}]],"length":101,"saved":false}
+{"contributors":[],"silentsave":false,"ts":1358764158817,"patch":[[{"diffs":[[0,"end("],[-1,"\"respond with a resource\""],[1,"{\"organizations\": \"hi\"}"],[0,");\n}"]],"start1":67,"start2":67,"length1":33,"length2":31}]],"length":99,"saved":false}
