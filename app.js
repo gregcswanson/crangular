@@ -33,8 +33,8 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 app.get('/users', user.list);
-app.get('/api/organizations', api.organizations);
-app.get('/api/organization/:id', api.organization);
+app.get('/api/organisations', api.organisations);
+app.get('/api/organisation/:id', api.organisation);
 app.get('/api/profile', api.profile);
 
 http.createServer(app).listen(app.get('port'), function(){

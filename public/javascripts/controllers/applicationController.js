@@ -4,3 +4,4 @@ function applicationCtrl($scope) {
         $scope.isExpanded = !$scope.isExpanded;
     };
 }
+

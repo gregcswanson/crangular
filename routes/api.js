@@ -2,14 +2,14 @@
  * API.
  */
 
-exports.organizations = function(req, res){
+exports.organisations = function(req, res){
   res.send([
       {"name": "ACME"}, 
       {"name": "Fabrikam"}
   ]);
 };
 
-exports.organization = function(req, res){
+exports.organisation = function(req, res){
   res.send({"name": "ACME"});
 };
 
