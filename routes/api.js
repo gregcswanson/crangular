@@ -17,8 +17,8 @@ exports.profile = function(req, res){
     res.send(
         {
             "email": "john.smith@acme.com",
-            "firstName": "John",
-            "lastName": "Smith",
+            "firstname": "John",
+            "lastname": "Smith",
             "display" : "John Smith",
             "gravatar": "?"
         });
