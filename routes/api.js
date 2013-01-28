@@ -14,5 +14,12 @@ exports.organisation = function(req, res){
 };
 
 exports.profile = function(req, res){
-  res.send({"email": "john.smith@acme.com"});
+    res.send(
+        {
+            "email": "john.smith@acme.com",
+            "firstName": "John",
+            "lastName": "Smith",
+            "display" : "John Smith",
+            "gravatar": "?"
+        });
 };
