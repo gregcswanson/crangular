@@ -1,5 +1,33 @@
+<nav class="top-bar">
+    <ul>
+		<!-- Title Area -->
+		<li class="name">
+			<h1>
+				<a href="#/">The App</a>
+        	</h1>
+      	</li>
+		<li class="toggle-topbar"><a href="#"></a></li>
+	</ul>
 
-    <button ng-click="expandedClick()">{{label}}</button>
-    <div ng-show="isExpanded">
-        <a href="#/home">Home</a>|<a href="#/organisations">organisations</a>|<a href="#/profile">profile</a>
-    </div>
+	<section>
+      	<!-- Right Nav Section -->
+      	<ul class="right">
+        	<li class="divider"></li>
+        	<li><a href="#/home">home</a></li>
+        	<li class="divider"></li>
+            <li><a href="#/organisations">organisations</a></li>
+            <li class="divider"></li>
+            <li><a href="#/profile">profile</a></li>
+            <li class="divider"></li>
+        	<li><a href="#/about">about</a></li>
+    	    <li class="has-button">
+        	    <a class="small button" href="/login">sign out</a>
+      	    </li>
+      	</ul>
+	</section>
+</nav>
+
+<button ng-click="expandedClick()">{{label}}</button>
+<div ng-show="isExpanded">
+    <a href="#/home">Home</a>|<a href="#/organisations">organisations</a>|<a href="#/profile">profile</a>|<a href="#/about">about</a>
+</div>

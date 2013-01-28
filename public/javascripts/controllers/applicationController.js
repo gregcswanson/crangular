@@ -21,3 +21,11 @@ function MenuCtrl($scope) {
         }
     };
 }
+
+function AboutCtrl($scope) {
+    
+}
+
+function AboutContactCtrl($scope) {
+    
+}
