@@ -4,7 +4,7 @@
     Last Name: <input type="text" ng-model="user.lastname" /><br />
     Display: <input type="text" ng-model="user.display" /><br />
     E-mail: <input type="email" ng-model="user.email" /><br />
-    <p>[TO DO: Gravatar]</p>
+    <img src="{{user.gravatarlarge}}" alt="user">
     <button ng-click="reset()">RESET</button>
     <button ng-click="update(user)">SAVE</button>
 </form>
