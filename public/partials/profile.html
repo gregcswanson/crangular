@@ -1,12 +1,57 @@
-<h4>profile</h4>
+<div class="row">
+    <div class="twelve columns">
+        <h4>Profile</h4>
+    </div>
+</div>
 <form novalidate class="simple-form">
-    First Name: <input type="text" ng-model="user.firstname" /><br />
-    Last Name: <input type="text" ng-model="user.lastname" /><br />
-    Display: <input type="text" ng-model="user.display" /><br />
-    E-mail: <input type="email" ng-model="user.email" /><br />
-    <img src="{{user.gravatarlarge}}" alt="user">
-    <button ng-click="reset()">RESET</button>
-    <button ng-click="update(user)">SAVE</button>
+    <div class="row">
+        <div class="eight columns">
+            <div class="row">
+                <div class="six columns">
+                    <label>First Name</label>
+                </div>
+                <div class="six columns">
+                    <input type="text" placeholder="First Name" ng-model="user.firstname" />
+                </div>    
+            </div>
+            <div class="row">
+                <div class="six columns">
+                    <label>Last Name</label>
+                </div>
+                <div class="six columns">
+                    <input type="text" placeholder="Last Name" ng-model="user.lastname" />
+                </div>    
+            </div>
+            <div class="row">
+                <div class="six columns">
+                    <label>Display</label>
+                </div>
+                <div class="six columns">
+                    <input type="text" placeholder="Display Name" ng-model="user.display" />
+                </div>    
+            </div>
+            <div class="row">
+                <div class="twelve columns offset-by-six">
+                    <label>{{user.display}}</label>
+                </div>    
+            </div>
+            <div class="row">
+                <div class="six columns">
+                    <label>Email</label>
+                </div>
+                <div class="six columns">
+                    <input type="email" placeholder="Email" ng-model="user.email" />
+                </div>    
+            </div>
+        </div>
+        <div class="four columns right">
+            <img src="{{user.gravatarlarge}}" alt="user">
+        </div>
+    </div>
+    <div>
+        <button ng-click="reset()">RESET</button>
+        <button ng-click="update(user)">SAVE</button>
+    </div>
 </form>
 <pre>form = {{user | json}}</pre>
 <pre>master = {{master | json}}</pre>
