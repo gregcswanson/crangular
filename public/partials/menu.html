@@ -29,8 +29,13 @@
       	</ul>
 	</section>
 </nav>
-
-<button ng-click="expandedClick()">{{label}}</button>
-<div ng-show="isExpanded">
-    <a href="#/home">Home</a>|<a href="#/organisations">organisations</a>|<a href="#/profile">profile</a>|<a href="#/about">about</a>
+<div class="expanded-menu" ng-show="isExpanded">
+    <div class="row">
+        <div class="twelve columns">
+        <p>
+            <a href="#/home">Home</a>|<a href="#/organisations">organisations</a>|<a href="#/profile">profile</a>|<a href="#/about">about</a>
+        
+            </p>
+        </div>
+    </div>
 </div>

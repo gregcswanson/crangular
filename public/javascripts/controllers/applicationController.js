@@ -10,7 +10,7 @@ function HomeCtrl($scope) {
 }
 
 function MenuCtrl($scope) {
-    $scope.isExpanded = true;
+    $scope.isExpanded = false;
     $scope.label = "hide menu";
     $scope.expandedClick = function(){
         $scope.isExpanded = !$scope.isExpanded;
