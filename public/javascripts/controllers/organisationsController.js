@@ -4,3 +4,11 @@ function OrganisationsCtrl($scope, $http) {
     });
     $scope.organisations = [];
 }
+
+function OrganisationCtrl($scope, $http, $routeParams) {
+    $scope.id = $routeParams.organisationId;
+}  
+
+function OrganisationUsersCtrl($scope, $http, $routeParams) {
+    $scope.id = $routeParams.organisationId;
+}  

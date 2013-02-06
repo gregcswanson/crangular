@@ -48,9 +48,11 @@
             <img src="{{user.gravatarlarge}}" alt="user">
         </div>
     </div>
-    <div>
-        <button ng-click="reset()">RESET</button>
-        <button ng-click="update(user)">SAVE</button>
+    <div class="row">
+        <div class="six columns offset-by-four">
+            <button class="button secondary" ng-click="reset()">RESET</button>
+            <button class="button" ng-click="update(user)">SAVE</button>
+        </div>
     </div>
 </form>
 <pre>form = {{user | json}}</pre>
