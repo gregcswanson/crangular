@@ -1,12 +1,40 @@
 <div class="row">
     <div class="twelve columns">
         <h4>Organisations</h4>
-        <ul>
-            <li ng-repeat="organisation in organisations">
-                {{organisation.name}}
-            </li>
-        </ul>
-    </div>
+        <div class="row" ng-repeat="organisation in organisations">
+            <div class="twelve columns">
+                <h5><a href="#/organisation/{{organisation.slug}}">{{organisation.name}}</a></h5>
+                <h6>2 Meeting Rooms</h6>
+                <div class="row">
+                    <div class="twelve columns">
+                        <div class="row">
+                            <div class="six columns">
+                                <p><strong>9am @ the board room</strong> just another meeting</p>
+                            </div>
+                            <div class="six columns">
+                                <div class="right">
+                                <img src="http://placehold.it/40x40&amp;text=[usr]">
+                                <img src="http://placehold.it/40x40&amp;text=[usr]">
+                                <img src="http://placehold.it/40x40&amp;text=[usr]">
+                                <img src="http://placehold.it/40x40&amp;text=[usr]">
+                                <img src="http://placehold.it/40x40&amp;text=[usr]">
+                                <img src="http://placehold.it/40x40&amp;text=[usr]">
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="inline-list">
+                            <li><a href="">Meeting details</li>
+                            <li><a href="">All Bookings</a></li>
+                            <li><a href="">Book this room</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="ten columns"><p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit</p></div>
+                </div>
+              </div>
+          </div>
+      </div>
 </div>
 <div class="row">
     <div class="twelve columns">
@@ -18,9 +46,8 @@
 </div>
 <div class="row">
     <div class="twelve columns">
-        <div class="panel">
-            <h5>Create</h5>
-            <p>Create a new organisation <a href="#/organisation/demonstration">play!</a></p>
+        <div class="panel callout">
+            <p><strong><a>Create</a></strong> a new organisation</p>
         </div>
     </div>
 </div>

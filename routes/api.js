@@ -5,8 +5,8 @@ var gravatar = require('gravatar');
 
 exports.organisations = function(req, res){
   res.send([
-      {"name": "ACME"}, 
-      {"name": "Fabrikam"}
+      {"name": "ACME", "slug":"acme" }, 
+      {"name": "Fabrikam", "slug": "fabrikam" } 
   ]);
 };
 

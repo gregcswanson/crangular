@@ -12,3 +12,7 @@ function OrganisationCtrl($scope, $http, $routeParams) {
 function OrganisationUsersCtrl($scope, $http, $routeParams) {
     $scope.id = $routeParams.organisationId;
 }  
+
+function OrganisationRoomsCtrl($scope, $http, $routeParams) {
+    $scope.id = $routeParams.organisationId;
+}  
