@@ -3,8 +3,10 @@
         <h4>Organisations</h4>
         <div class="row" ng-repeat="organisation in organisations">
             <div class="twelve columns">
-                <h5><a href="#/organisation/{{organisation.slug}}">{{organisation.name}}</a></h5>
-                <h6>2 Meeting Rooms</h6>
+                <div class="panel">
+                    <h5><a href="#/organisation/{{organisation.slug}}">{{organisation.name}}</a></h5>
+                    <h6>2 Meeting Rooms</h6>
+                </div>
                 <div class="row">
                     <div class="twelve columns">
                         <div class="row">
@@ -28,9 +30,6 @@
                             <li><a href="">Book this room</a></li>
                         </ul>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="ten columns"><p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit</p></div>
                 </div>
               </div>
           </div>
