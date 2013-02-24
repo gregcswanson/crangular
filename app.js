@@ -8,7 +8,24 @@ var express = require('express')
   , user = require('./routes/user')
   , api = require('./routes/api')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , fs    = require('fs')
+  , nconf = require('nconf');
+  
+// First consider commandline arguments and environment variables, respectively.
+nconf.argv().env();
+
+// Then load configuration from a designated file.
+nconf.file({ file: 'config.json' });
+
+// Provide default values for settings not provided above.
+nconf.defaults({
+    'password' : 'password'
+    , 'http': {
+        'port': 3000
+        , 'secret' : 'your secret here'
+    }
+});
 
 var app = express();
 
@@ -36,6 +53,9 @@ app.get('/users', user.list);
 app.get('/api/organisations', api.organisations);
 app.get('/api/organisation/:id', api.organisation);
 app.get('/api/profile', api.profile);
+app.get('/configuration', routes.configuration);
+app.post('/configurationLogin', routes.configurationLoginPost);
+app.post('/configuration', routes.configurationPost);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
