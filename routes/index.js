@@ -29,5 +29,8 @@ exports.congifurationLogout = function(req, res){
 
 exports.configurationPost = function(req, res){
     req.session.temp = req.body.temp;
-    res.redirect('/configuration');
+    nconf.set('http:secret', req.body.secret);
+    nconf.save(function(){
+        res.redirect('/configuration');
+    });
 };
