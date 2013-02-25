@@ -54,8 +54,9 @@ app.get('/api/organisations', api.organisations);
 app.get('/api/organisation/:id', api.organisation);
 app.get('/api/profile', api.profile);
 app.get('/configuration', routes.configuration);
-app.post('/configurationLogin', routes.configurationLoginPost);
+app.post('/configuration/login', routes.configurationLogin);
 app.post('/configuration', routes.configurationPost);
+app.get('/configuration/logout', routes.congifurationLogout)
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

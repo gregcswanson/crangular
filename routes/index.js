@@ -14,12 +14,17 @@ exports.configuration = function(req, res){
     }
 };
 
-exports.configurationLoginPost = function(req, res){
+exports.configurationLogin = function(req, res){
     if(nconf.get('password') == req.body.password)
     {
         req.session.configurationConfirmed = true;
     }
     res.redirect('/configuration');
+};
+
+exports.congifurationLogout = function(req, res){
+    req.session.configurationConfirmed = false;
+    res.redirect('/');
 };
 
 exports.configurationPost = function(req, res){
