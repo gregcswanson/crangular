@@ -10,7 +10,7 @@ exports.configuration = function(req, res){
     }else{
         var temp = req.session.temp;
         if (!temp) temp = "";
-        res.render('configuration', { title: 'Configuration', secret: nconf.get('http:secret'), temp: temp });  
+        res.render('configuration', { title: 'Configuration', secret: nconf.get('http:secret'), password: '' });  
     }
 };
 
@@ -28,7 +28,9 @@ exports.congifurationLogout = function(req, res){
 };
 
 exports.configurationPost = function(req, res){
-    req.session.temp = req.body.temp;
+    if(req.body.password && req.body.password.length !== 0){
+        nconf.set('password', req.body.password);
+    }
     nconf.set('http:secret', req.body.secret);
     nconf.save(function(){
         res.redirect('/configuration');
