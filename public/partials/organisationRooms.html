@@ -1,7 +1,13 @@
 <div class="row">
     <div class="twelve columns">
-        <h3>Organisation</h3>
-        <p>{{id}}</p>
+        <ul class="breadcrumbs">
+            <li><a href="#/menu"><i class="general foundicon-compass"></i></a></li>
+            <li><a href="#/">Home</a></li>
+            <li><a href="#/organisations">Organisations</a></li>
+            <li><a href="#/organisation/{{id}}">Organisation</a></li>
+            <li class="current"><a href="#/organisation/{{id}}/rooms">Rooms</a></li>
+        </ul>
+        <h3>{{id}}</h3>
         <dl class="tabs">
             <dt>Organisation</dt>
             <dd><a href="#/organisation/{{id}}">Details</a></dd>

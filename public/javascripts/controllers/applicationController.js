@@ -9,17 +9,15 @@ function HomeCtrl($scope) {
     $scope.page = "Home";
 }
 
-function MenuCtrl($scope) {
-    $scope.isExpanded = false;
-    $scope.label = "hide menu";
-    $scope.expandedClick = function(){
-        $scope.isExpanded = !$scope.isExpanded;
-        if($scope.isExpanded){
-            $scope.label = "hide menu";
-        }else{
-            $scope.label = "show menu";
-        }
+function HeaderCtrl($scope) {
+    $scope.searchText = "";
+    $scope.searchClick = function(){
+        
     };
+}
+
+function MenuCtrl($scope) {
+    
 }
 
 function AboutCtrl($scope) {
