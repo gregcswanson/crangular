@@ -15,8 +15,8 @@ exports.configuration = function(req, res){
             title: 'Configuration', 
             secret: nconf.get('http:secret'), 
             password: '',
-            name: nconf.get('STORAGE_NAME'),
-            key: nconf.get('STORAGE_KEY')
+            name: nconf.get('AZURE_STORAGE_ACCOUNT'),
+            key: nconf.get('AZURE_STORAGE_ACCESS_KEY')
         });  
     }
 };
@@ -39,8 +39,8 @@ exports.configurationPost = function(req, res){
         nconf.set('password', req.body.password);
     }
     nconf.set('http:secret', req.body.secret);
-    nconf.set('STORAGE_NAME', req.body.storagename);
-    nconf.set('STORAGE_KEY', req.body.storagekey);
+    nconf.set('AZURE_STORAGE_ACCOUNT', req.body.storagename);
+    nconf.set('AZURE_STORAGE_ACCESS_KEY', req.body.storagekey);
     nconf.save(function(){
         res.redirect('/configuration');
     });
