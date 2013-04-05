@@ -1,7 +1,20 @@
 /*
  * API.
  */
-var gravatar = require('gravatar');
+var gravatar = require('gravatar')
+    , repository = require('./repository');
+
+exports.vents = function(req, res){
+    repository.VentsFindAll(function(err, items){
+        res.send(items);
+    });
+};
+
+exports.ventAdd = function(req, res){
+    repository.VentsAdd({'comment': req.body.comment, 'created': new Date()}, function(err, item){
+        res.send(item);
+    });
+};
 
 exports.organisations = function(req, res){
   res.send([

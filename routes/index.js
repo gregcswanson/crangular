@@ -16,7 +16,12 @@ exports.configuration = function(req, res){
             secret: nconf.get('http:secret'), 
             password: '',
             name: nconf.get('AZURE_STORAGE_ACCOUNT'),
-            key: nconf.get('AZURE_STORAGE_ACCESS_KEY')
+            key: nconf.get('AZURE_STORAGE_ACCESS_KEY'),
+            mongodbserver: nconf.get('MONGO_DB_SERVER'),
+            mongodbport: nconf.get('MONGO_DB_PORT'),
+            mongodbdatabase: nconf.get('MONGO_DB_DATABASE'),
+            mongodbusername: nconf.get('MONGO_DB_USERNAME'),
+            mongodbpassword: nconf.get('MONGO_DB_PASSWORD')
         });  
     }
 };
@@ -41,6 +46,11 @@ exports.configurationPost = function(req, res){
     nconf.set('http:secret', req.body.secret);
     nconf.set('AZURE_STORAGE_ACCOUNT', req.body.storagename);
     nconf.set('AZURE_STORAGE_ACCESS_KEY', req.body.storagekey);
+    nconf.set('MONGO_DB_SERVER', req.body.mongodbserver);
+    nconf.set('MONGO_DB_PORT', req.body.mongodbport);
+    nconf.set('MONGO_DB_DATABASE', req.body.mongodbdatabase);
+    nconf.set('MONGO_DB_USERNAME', req.body.mongodbusername);
+    nconf.set('MONGO_DB_PASSWORD', req.body.mongodbpassword);
     nconf.save(function(){
         res.redirect('/configuration');
     });

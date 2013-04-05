@@ -28,6 +28,24 @@ db.open(function(err) {
     }
 });
 
+exports.VentsFindAll = function(callback) {
+    db.collection('vents', function(err, collection) {
+        collection.find({}).sort([['created', 'desc']]).toArray(function(err, items) {
+            if(err) return callback(err, null);
+            callback(null, items);
+        });
+    });
+};
+
+exports.VentsAdd = function(item, callback) {
+    db.collection('vents', function(err, collection) {
+        collection.insert(item, {safe:true}, function(err, result) {
+            if(err) return callback(err, null);
+            callback(null, result);
+        });
+    });
+};
+
 exports.ProfileFindByID = function(id, callback) {
 	db.collection('profiles', function(err, collection) {
         collection.find({_id: new ObjectID(id)},{limit: 1}).toArray(function(err, docs){ 
