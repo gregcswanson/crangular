@@ -13,5 +13,6 @@ angular.module('crangular', []).
           when('/about/contact', {templateUrl: 'partials/aboutcontact.html', controller: AboutContactCtrl}).
           when('/about/feedback', {templateUrl: 'partials/aboutfeedback.html', controller: AboutCtrl}).
           when('/about/geekstuff', {templateUrl: 'partials/aboutgeek.html', controller: AboutCtrl}).
+          when('/vents', {templateUrl: 'partials/vents.html', controller: VentsCtrl}).
           otherwise({redirectTo: '/home'});
 }]);

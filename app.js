@@ -3,14 +3,7 @@
  * Module dependencies.
  */
 
-var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
-  , api = require('./routes/api')
-  , http = require('http')
-  , path = require('path')
-  , fs    = require('fs')
-  , nconf = require('nconf');
+var nconf = require('nconf');
   
 // First consider commandline arguments and environment variables, respectively.
 nconf.argv().env();
@@ -26,6 +19,14 @@ nconf.defaults({
         , 'secret' : 'your secret here'
     }
 });
+
+var express = require('express')
+  , routes = require('./routes')
+  , user = require('./routes/user')
+  , api = require('./routes/api')
+  , http = require('http')
+  , path = require('path')
+  , fs    = require('fs');
 
 var app = express();
 

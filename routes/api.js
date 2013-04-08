@@ -2,7 +2,7 @@
  * API.
  */
 var gravatar = require('gravatar')
-    , repository = require('./repository');
+    , repository = require('../repository');
 
 exports.vents = function(req, res){
     repository.VentsFindAll(function(err, items){

@@ -7,21 +7,23 @@ var Db = require('mongodb').Db
  , Server = require('mongodb').Server
  , ObjectID = require('mongodb').ObjectID
  , nconf = require('nconf');
+ 
+ console.log(nconf.get('MONGO_DB_SERVER'));
 
-var server = new Server(nconf.get('MONGO_DB_SERVER'), nconf.get('MONGO_DB_PORT'), { auto_reconnect: true });
-var db = new Db(nconf.get('MONGO_DB_DATABASE'),server, {safe:false});
+var server = new Server(nconf.get('MONGO_DB_SERVER').toString(), nconf.get('MONGO_DB_PORT').toString(), { auto_reconnect: true });
+var db = new Db(nconf.get('MONGO_DB_DATABASE').toString(),server, {safe:false});
 
 db.open(function(err) {
-    if(nconf.get('MONGO_DB_USERNAME') !== "")
+    if(nconf.get('MONGO_DB_USERNAME').toString() !== "")
     {
         db.authenticate(
-            nconf.get('MONGO_DB_USERNAME'), 
-            nconf.get('MONGO_DB_PASSWORD'), 
+            nconf.get('MONGO_DB_USERNAME').toString(), 
+            nconf.get('MONGO_DB_PASSWORD').toString(), 
             function(err) {
                 if (err) {
                     console.log(err);
                 }else{
-                    console.log('connected to mongoDB (' + nconf.get('MONGO_DB_SERVER') + ', ' + nconf.get('MONGO_DB_DATABASE') + ')');
+                    console.log('connected to mongoDB (' + nconf.get('MONGO_DB_SERVER').toString() + ', ' + nconf.get('MONGO_DB_DATABASE').toString() + ')');
                 }
             }
         );
