@@ -1,0 +1,10 @@
+flame.mongohq.com
+flame.mongohq.com
+27106
+cloud
+admin
+cloud9
+Express server listening on port \\.\pipe\6127a299-bdb8-454d-9549-acb8d86dee05
+[90mGET / [32m200 [90m188ms - 988[0m
+connected to mongoDB (flame.mongohq.com, cloud)
+[90mGET /api/vents [32m200 [90m603ms - 456[0m

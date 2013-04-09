@@ -1,0 +1,4 @@
+flame.mongohq.com
+Express server listening on port \\.\pipe\a754dc00-fcce-4171-ba07-6a15cb5893a6
+[90mGET / [32m200 [90m164ms - 988[0m
+{ [MongoError: auth fails] name: 'MongoError', ok: 0, errmsg: 'auth fails' }

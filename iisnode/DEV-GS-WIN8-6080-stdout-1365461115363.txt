@@ -1,0 +1,4 @@
+undefined
+connection settings to mongoDB have not been defined
+Express server listening on port \\.\pipe\ae65f18c-e134-4f36-9aca-149157dd42ae
+[90mGET / [32m200 [90m165ms - 988[0m
