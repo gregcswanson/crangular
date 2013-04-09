@@ -50,6 +50,7 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
+app.get('/login', routes.login);
 app.get('/users', user.list);
 app.get('/api/vents', api.vents);
 app.post('/api/vents', api.ventAdd);

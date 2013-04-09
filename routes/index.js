@@ -4,6 +4,10 @@ exports.index = function (req, res) {
     res.render('index', { title: 'Express' });
 };
 
+exports.login = function (req, res) {
+    res.render('login', { title: 'Login' });
+};
+
 exports.configuration = function (req, res) {
     if (!req.session.configurationConfirmed || !req.session.configurationConfirmed) {
         res.render('configurationLogin', { title: 'Configuration' });
