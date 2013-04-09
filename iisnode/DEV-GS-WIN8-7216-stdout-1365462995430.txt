@@ -1,3 +1,0 @@
-flame.mongohq.com
-Express server listening on port \\.\pipe\bf417d96-e462-4fed-9f5b-c89ad4d46fbd
-[90mGET / [32m200 [90m98ms - 988[0m
