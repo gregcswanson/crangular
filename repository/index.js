@@ -41,6 +41,14 @@ if (mongoServer === '') {
     });
 }
 
+exports.UserFindOrCreate = function (user, callback) {
+    callback(null, { 'name': 'Joe Black', 'username': 'joeblack' });
+};
+
+exports.UserFindByUserName = function (username, callback) {
+    callback(null, { 'name': 'Joe Black', 'username': 'joeblack' });
+};
+
 exports.VentsFindAll = function (callback) {
     db.collection('vents', function (err, collection) {
         collection.find({}).sort([['created', 'desc']]).toArray(function (err, items) {

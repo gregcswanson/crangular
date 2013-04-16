@@ -14,6 +14,7 @@ nconf.file({ file: 'config.json' });
 // Provide default values for settings not provided above.
 nconf.defaults({
     'password' : 'password'
+    , 'callbackurl' : 'http://localhost:18788/'
     , 'http': {
         'port': 3000
         , 'secret' : 'your secret here'
@@ -26,7 +27,34 @@ var express = require('express')
   , api = require('./routes/api')
   , http = require('http')
   , path = require('path')
-  , fs    = require('fs');
+  , fs    = require('fs')
+  , repository    = require('./repository')
+  , passport = require('passport')
+  , GoogleStrategy = require('passport-google').Strategy;
+
+passport.use(new GoogleStrategy({
+    returnURL: nconf.get('callbackurl') + 'auth/google/return',
+    realm: nconf.get('callbackurl')
+},
+  function (identifier, profile, done) {
+      console.log(identifier);
+      console.log(profile);
+      repository.UserFindOrCreate({ openId: identifier }, function (err, user) {
+          done(err, user);
+      });
+  }
+));
+
+passport.serializeUser(function(user, done) {
+    done(null, user.username);
+});
+
+passport.deserializeUser(function (id, done) {
+    repository.UserFindByUserName(id, function (err, user) {
+        console.log(user);
+        done(err, user);
+    });
+});
 
 var app = express();
 
@@ -40,6 +68,8 @@ app.configure(function(){
   app.use(express.methodOverride());
   app.use(express.cookieParser('your secret here'));
   app.use(express.session());
+    app.use(passport.initialize());
+    app.use(passport.session());
   app.use(app.router);
   app.use(require('less-middleware')({ src: __dirname + '/public' }));
   app.use(express.static(path.join(__dirname, 'public')));
@@ -49,8 +79,10 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
+app.get('/', ensureAuthenticated, routes.index);
 app.get('/login', routes.login);
+app.get('/auth/google', passport.authenticate('google'));
+app.get('/auth/google/return', passport.authenticate('google', { successRedirect: '/', failureRedirect: '/login' }));
 app.get('/users', user.list);
 app.get('/api/vents', api.vents);
 app.post('/api/vents', api.ventAdd);
@@ -61,6 +93,16 @@ app.get('/configuration', routes.configuration);
 app.post('/configuration/login', routes.configurationLogin);
 app.post('/configuration', routes.configurationPost);
 app.get('/configuration/logout', routes.congifurationLogout)
+
+// Simple route middleware to ensure user is authenticated.
+//   Use this route middleware on any resource that needs to be protected.  If
+//   the request is authenticated (typically via a persistent login session),
+//   the request will proceed.  Otherwise, the user will be redirected to the
+//   login page.
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { return next(); }
+  res.redirect('/login')
+}
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

@@ -19,6 +19,7 @@ exports.configuration = function (req, res) {
             title: 'Configuration',
             secret: nconf.get('http:secret'),
             password: '',
+            callbackurl: nconf.get('callbackurl'),
             name: nconf.get('AZURE_STORAGE_ACCOUNT') || '',
             key: nconf.get('AZURE_STORAGE_ACCESS_KEY') || '',
             mongodbserver: nconf.get('MONGO_DB_SERVER') || '',
@@ -46,6 +47,7 @@ exports.configurationPost = function (req, res) {
     if (req.body.password && req.body.password.length !== 0) {
         nconf.set('password', req.body.password);
     }
+    nconf.set('callbackurl', req.body.callbackurl);
     nconf.set('http:secret', req.body.secret);
     nconf.set('AZURE_STORAGE_ACCOUNT', req.body.storagename);
     nconf.set('AZURE_STORAGE_ACCESS_KEY', req.body.storagekey);
