@@ -2,16 +2,17 @@
  * API.
  */
 var gravatar = require('gravatar')
-    , repository = require('../repository');
+    , repository = require('../repository')
+    , tableRepository = require('../repository/tableStorageRepository');
 
 exports.vents = function(req, res){
-    repository.VentsFindAll(function(err, items){
+    tableRepository.VentsFindAll(function(err, items){
         res.send(items);
     });
 };
 
 exports.ventAdd = function(req, res){
-    repository.VentsAdd({'comment': req.body.comment, 'created': new Date()}, function(err, item){
+    tableRepository.VentsAdd({'comment': req.body.comment, 'created': new Date()}, function(err, item){
         res.send(item);
     });
 };
