@@ -2,7 +2,9 @@ var azure = require('azure')
     , uuid = require('node-uuid')
     , nconf = require('nconf');
 
-var tableService = azure.createTableService(nconf.get("AZURE_STORAGE_ACCOUNT"), nconf.get("AZURE_STORAGE_ACCESS_KEY"));
+var axureStorageAccount = nconf.get('AZURE_STORAGE_ACCOUNT') || '';
+var azureStorageKey = nconf.get('AZURE_STORAGE_ACCESS_KEY') || '';
+var tableService = azure.createTableService(axureStorageAccount, azureStorageKey);
 
 /*
 https://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/table-services
