@@ -3,6 +3,10 @@ function ProfileCtrl($scope, $http) {
  
     $scope.update = function(user) {
         $scope.master = angular.copy(user);
+        $http.put('api/profile', user).success(function(data) {
+            console.log(data);
+            $scope.user = data;
+        });
     };
  
     $scope.reset = function() {

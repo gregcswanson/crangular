@@ -41,12 +41,51 @@ if (mongoServer === '') {
     });
 }
 
-exports.UserFindOrCreate = function (user, callback) {
-    callback(null, { 'name': 'Joe Black', 'username': 'joeblack' });
+exports.UserFindOrCreate = function (loginDetails, callback) {
+	db.collection('users', function(err, collection){
+		console.log('finding user: ' + loginDetails.username);
+		collection.find({ 'username': loginDetails.username }, { limit: 1 }).toArray(function (err, docs) {
+            if (err) return callback(err, null);
+            if (docs.length > 0) {
+            	console.log('found user: ' + docs[0]);
+                callback(null, docs[0]);
+            } else {
+            	console.log('creating new user');
+                collection.insert(loginDetails, { safe: true }, function (err, result) {
+            		if (err) return callback(err, null);
+            		console.log('user created: ' + result[0]);
+            		callback(null, result[0]);
+        		});
+            }
+        });
+	});
 };
 
 exports.UserFindByUserName = function (username, callback) {
-    callback(null, { 'name': 'Joe Black', 'username': 'joeblack' });
+	console.log('UserFindByUserName:' + username);
+    db.collection('users', function(err, collection){
+		collection.find({ 'username': username }, { limit: 1 }).toArray(function (err, docs) {
+            if (err) return callback(err, null);
+            if (docs.length > 0) {
+                callback(null, docs[0]);
+            } else {
+            	console.log('not found');
+                callback({'message' : 'Not Found' }, null);
+            }
+        });
+	});
+};
+
+exports.UserUpdateByUserName = function(user, callback){
+	// To Do : verify this is the current user
+	console.log('update user');
+	console.log(user);
+    db.collection('users', function (err, collection) {
+        collection.findAndModify({ 'username': user.username }, {}, { $set: { firstname: user.firstname, lastname: user.lastname, name: user.name} }, {new:true}, function (err, item) {
+            if (err) return callback(err, null);
+            callback(null, item);
+        });
+    });
 };
 
 exports.VentsFindAll = function (callback) {

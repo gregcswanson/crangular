@@ -39,17 +39,11 @@
                     <label>Email</label>
                 </div>
                 <div class="six columns">
-                    <input type="email" placeholder="Email" ng-model="user.email" />
+                    <input type="email" placeholder="Email" ng-model="user.email" disabled/>
                 </div>    
             </div>
         </div>
-        <!-- <div class="four columns">
-            <div class="row">
-                
-            </div>
-            
-            <!-- <img class="right" src="{{user.gravatarlarge}}" alt="user"> 
-        </div>-->
+         
     </div>
     <div class="row">
         <div class="six columns offset-by-four">
@@ -57,8 +51,3 @@
             <button class="button" ng-click="update(user)">SAVE</button>
         </div>
     </div>
-<!-- </form> -->
-<div class="row">
-    <pre>form = {{user | json}}</pre>
-    <pre>master = {{master | json}}</pre>
-</row>

@@ -37,10 +37,18 @@ passport.use(new GoogleStrategy({
     realm: nconf.get('callbackurl')
 },
   function (identifier, profile, done) {
-      console.log(identifier);
       console.log(profile);
-      repository.UserFindOrCreate({ openId: identifier }, function (err, user) {
-          done(err, user);
+      repository.UserFindOrCreate(
+      	{
+      		'username': profile.emails[0].value
+      		, 'email': profile.emails[0].value
+      		, 'name' : profile.displayName
+      		, 'firstname': profile.name.givenName
+      		, 'lastname': profile.name.familyName
+      	}
+      	, function (err, user) {
+      		console.log(user);
+          	done(err, user);
       });
   }
 ));
@@ -89,6 +97,7 @@ app.post('/api/vents', api.ventAdd);
 app.get('/api/organisations', api.organisations);
 app.get('/api/organisation/:id', api.organisation);
 app.get('/api/profile', api.profile);
+app.put('/api/profile', api.profileEdit);
 app.get('/configuration', routes.configuration);
 app.post('/configuration/login', routes.configurationLogin);
 app.post('/configuration', routes.configurationPost);
