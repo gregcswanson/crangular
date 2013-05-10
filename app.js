@@ -9,7 +9,7 @@ var nconf = require('nconf');
 nconf.argv().env();
 
 // Then load configuration from a designated file.
-nconf.file({ file: 'config.json' });
+nconf.file({ file: './config.json' });
 
 // Provide default values for settings not provided above.
 nconf.defaults({
