@@ -89,6 +89,7 @@ app.configure('development', function(){
 
 app.get('/', ensureAuthenticated, routes.index);
 app.get('/login', routes.login);
+app.get('/styleguide', routes.styleguide);
 app.get('/auth/google', passport.authenticate('google'));
 app.get('/auth/google/return', passport.authenticate('google', { successRedirect: '/', failureRedirect: '/login' }));
 app.get('/users', user.list);

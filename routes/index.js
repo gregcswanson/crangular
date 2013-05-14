@@ -4,6 +4,10 @@ exports.index = function (req, res) {
     res.render('index', { title: 'Express' });
 };
 
+exports.styleguide = function (req, res) {
+    res.render('styleguide', { title: 'Style Guide' });
+};
+
 exports.login = function (req, res) {
     res.render('login', { title: 'Login' });
 };
